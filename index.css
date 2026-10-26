@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hospital-themed Design System - Tracksure */
+/* All colors in HSL for proper theming */
+
+@layer base {
+  :root {
+    /* Core backgrounds */
+    --background: 210 40% 98%;
+    --foreground: 210 50% 10%;
+
+    /* Cards and surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 10%;
+
+    /* Primary - Medical Blue */
+    --primary: 200 80% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft blue-gray */
+    --secondary: 200 20% 94%;
+    --secondary-foreground: 200 50% 25%;
+
+    /* Muted surfaces */
+    --muted: 200 20% 96%;
+    --muted-foreground: 200 15% 45%;
+
+    /* Accent - Teal */
+    --accent: 170 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 200 80% 40%;
+
+    --radius: 0.75rem;
+
+    /* Status Colors */
+    --status-available: 145 65% 42%;
+    --status-in-use: 35 90% 52%;
+    --status-dirty: 0 70% 55%;
+    --status-sterilized: 200 80% 50%;
+
+    /* Location Colors */
+    --location-ot: 280 60% 55%;
+    --location-cssd: 200 70% 50%;
+    --location-store: 145 50% 45%;
+
+    /* Gradients */
+    --gradient-header: linear-gradient(135deg, hsl(200, 80%, 40%) 0%, hsl(170, 60%, 45%) 100%);
+    --gradient-card-hover: linear-gradient(180deg, hsl(200, 40%, 98%) 0%, hsl(200, 30%, 95%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(200 50% 20% / 0.1);
+    --shadow-card-hover: 0 8px 30px -4px hsl(200 50% 20% / 0.15);
+    --shadow-button: 0 2px 8px -2px hsl(200 80% 40% / 0.3);
+
+    /* Sidebar (keeping defaults) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 50% 8%;
+    --foreground: 200 20% 95%;
+
+    --card: 210 45% 12%;
+    --card-foreground: 200 20% 95%;
+
+    --popover: 210 45% 12%;
+    --popover-foreground: 200 20% 95%;
+
+    --primary: 200 75% 55%;
+    --primary-foreground: 210 50% 8%;
+
+    --secondary: 210 40% 18%;
+    --secondary-foreground: 200 20% 90%;
+
+    --muted: 210 40% 18%;
+    --muted-foreground: 200 15% 60%;
+
+    --accent: 170 55% 50%;
+    --accent-foreground: 210 50% 8%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 40% 20%;
+    --input: 210 40% 20%;
+    --ring: 200 75% 55%;
+
+    --status-available: 145 60% 50%;
+    --status-in-use: 35 85% 55%;
+    --status-dirty: 0 65% 55%;
+    --status-sterilized: 200 75% 55%;
+
+    --shadow-card: 0 4px 20px -4px hsl(200 50% 5% / 0.3);
+    --shadow-card-hover: 0 8px 30px -4px hsl(200 50% 5% / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer utilities {
+  .gradient-header {
+    background: var(--gradient-header);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .status-available {
+    background-color: hsl(var(--status-available));
+    color: white;
+  }
+
+  .status-in-use {
+    background-color: hsl(var(--status-in-use));
+    color: white;
+  }
+
+  .status-dirty {
+    background-color: hsl(var(--status-dirty));
+    color: white;
+  }
+
+  .status-sterilized {
+    background-color: hsl(var(--status-sterilized));
+    color: white;
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-subtle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
